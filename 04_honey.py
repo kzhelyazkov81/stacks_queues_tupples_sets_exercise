@@ -8,7 +8,7 @@ operations = {
     '+': lambda a, b: a+b,
     '-': lambda a, b: a-b,
     '*': lambda a, b: a*b,
-    '/': lambda a, b: a//b
+    '/': lambda a, b: a/b
 }
 
 total_honey = 0
@@ -19,6 +19,10 @@ while working_bees and nectar:
     if last_nectar < first_bee:
         working_bees.appendleft(first_bee)
         continue
+
+    if last_nectar == 0:
+        continue
+
     operation = symbols.popleft()
     total_honey += abs(operations[operation](first_bee, last_nectar))
 
